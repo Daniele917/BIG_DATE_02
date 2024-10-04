@@ -1,19 +1,12 @@
-# Com base nos dados obtidos no programa anterior e sabendo que o veículo usado consome 12 Km/l,construa um programa que determine a quantidade de combustível gasto nessa viagem.
+# Escreva um programa que leia um valor inteiro e apresente os resultados do quadrado e do cubo do valor lido.
 
+# Leitura do valor inteiro
+valor = int(input("Informe um valor inteiro: "))
 
-# Função para calcular a quantidade de combustível gasto
-def calcular_combustivel_gasto(distancia, consumo):
-    combustivel_gasto = distancia / consumo
-    return combustivel_gasto
+# Cálculo do quadrado e do cubo
+quadrado = valor ** 2
+cubo = valor ** 3
 
-# Leitura da distância percorrida (em km)
-distancia = float(input("Digite a distância percorrida em quilômetros: "))
-
-# Consumo do veículo (km/l)
-consumo = 12  # km/l
-
-# Cálculo da quantidade de combustível gasto
-combustivel_gasto = calcular_combustivel_gasto(distancia, consumo)
-
-# Exibição do resultado
-print(f"A quantidade de combustível gasto na viagem é: {combustivel_gasto:.2f} litros")
+# Exibição dos resultados
+print(f"\nO quadrado de {valor} é: {quadrado}")
+print(f"O cubo de {valor} é: {cubo}")

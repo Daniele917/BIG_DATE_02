@@ -1,23 +1,16 @@
-# 2- Escreva um programa que calcule a velocidade média de um veículo com base na distância percorrida e no tempo em que uma viagem foi realizada.
+# Escreva um programa que, leia dois valores para as variáveis A e B e efetue a troca dos valores de
+# forma que a variável A passe a possuir o valor da variável B e a variável B passe a possuir o valor da variável A.
+# Apresente os valores trocados.
 
+# Leitura dos valores para A e B
+A = input("Informe o valor da variável A: ")
+B = input("Informe o valor da variável B: ")
 
+# Exibindo os valores antes da troca
+print(f"\nAntes da troca: A = {A}, B = {B}")
 
+# Troca dos valores
+A, B = B, A
 
-# Função para calcular a velocidade média
-def calcular_velocidade_media(distancia, tempo):
-    if tempo == 0:
-        return 0  # Evitar divisão por zero
-    velocidade_media = distancia / tempo
-    return velocidade_media
-
-# Leitura da distância percorrida (em km)
-distancia = float(input("Digite a distância percorrida em quilômetros: "))
-
-# Leitura do tempo gasto (em horas)
-tempo = float(input("Digite o tempo gasto em horas: "))
-
-# Cálculo da velocidade média
-velocidade_media = calcular_velocidade_media(distancia, tempo)
-
-# Exibição do resultado
-print(f"A velocidade média do veículo é: {velocidade_media:.2f} km/h")
+# Exibindo os valores após a troca
+print(f"Após a troca: A = {A}, B = {B}")
