@@ -1,15 +1,23 @@
+# 2- Escreva um programa que calcule a velocidade média de um veículo com base na distância percorrida e no tempo em que uma viagem foi realizada.
 
-# Função para encontrar o maior número entre três inteiros
-def maior_numero(n1, n2, n3):
-    return max(n1, n2, n3)
 
-# Coletando os números inteiros do usuário
-n1 = int(input("Digite o primeiro número (n1): "))
-n2 = int(input("Digite o segundo número (n2): "))
-n3 = int(input("Digite o terceiro número (n3): "))
 
-# Encontrando o maior número
-maior = maior_numero(n1, n2, n3)
 
-# Exibindo o resultado
-print(f"O maior número entre {n1}, {n2} e {n3} é: {maior}")
+# Função para calcular a velocidade média
+def calcular_velocidade_media(distancia, tempo):
+    if tempo == 0:
+        return 0  # Evitar divisão por zero
+    velocidade_media = distancia / tempo
+    return velocidade_media
+
+# Leitura da distância percorrida (em km)
+distancia = float(input("Digite a distância percorrida em quilômetros: "))
+
+# Leitura do tempo gasto (em horas)
+tempo = float(input("Digite o tempo gasto em horas: "))
+
+# Cálculo da velocidade média
+velocidade_media = calcular_velocidade_media(distancia, tempo)
+
+# Exibição do resultado
+print(f"A velocidade média do veículo é: {velocidade_media:.2f} km/h")

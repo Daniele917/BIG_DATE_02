@@ -1,17 +1,18 @@
+# Faça um programa que leia uma temperatura em graus Celsius e apresente-a convertida em graus Fahrenheit. A fórmula de conversão é: F = (9 * C + 160) / 5, na qual F é a temperatura em Fahrenheit e C é a temperatura em Celsius;
 
-# Função para verificar se a pessoa pode doar sangue
-def pode_doar_sangue(idade, peso, horas_dormidas):
-    if 16 <= idade <= 69 and peso > 50 and horas_dormidas >= 6:
-        return True
-    return False
 
-# Coletando informações do usuário
-idade = int(input("Digite sua idade: "))
-peso = float(input("Digite seu peso em kg: "))
-horas_dormidas = float(input("Quantas horas você dormiu nas últimas 24 horas? "))
 
-# Verificando se a pessoa pode doar sangue
-if pode_doar_sangue(idade, peso, horas_dormidas):
-    print("Você pode doar sangue!")
-else:
-    print("Você não pode doar sangue.")
+
+# Função para converter Celsius para Fahrenheit
+def celsius_para_fahrenheit(celsius):
+    fahrenheit = (9 * celsius + 160) / 5
+    return fahrenheit
+
+# Leitura da temperatura em Celsius
+celsius = float(input("Digite a temperatura em graus Celsius: "))
+
+# Conversão
+fahrenheit = celsius_para_fahrenheit(celsius)
+
+# Exibição do resultado
+print(f"A temperatura em graus Fahrenheit é: {fahrenheit:.2f}")
