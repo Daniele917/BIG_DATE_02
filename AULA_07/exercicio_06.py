@@ -1,10 +1,6 @@
 # Exercicio_03 versão do professor :
 
 
-
-
-
-
 # Foi realizada uma pesquisa de algumas características físicas da população de uma certa região, a qual coletaram os seguintes dados referentes a cada habitante para serem analisados: 
 # - sexo (masculino e feminino) 
 # - cor dos olhos (azuis, verdes ou castanhos) 
