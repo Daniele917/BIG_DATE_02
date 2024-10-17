@@ -14,25 +14,19 @@
 
 import pandas as pd
 
-# Dados fornecidos
-roubos = pd.Series([100, 90, 80, 120, 110, 90, 70])
-furtos = pd.Series([80, 60, 70, 60, 100, 50, 30])
-recuperacao = pd.Series([70, 50, 90, 80, 100, 70, 50])
+# Criando uma função para formatar número
+def formatar(valor):
+    return "{:.2f}%".format(valor)
 
-# Cálculo da quantidade diária de roubos + furtos de automóveis
-quantidade_diaria_roubos_furtos = roubos + furtos
-
-# Cálculo da taxa de recuperação diária (recuperação / roubo)
-taxa_recuperacao_diaria = (recuperacao / roubos) * 100
-
-# Substituir valores NaN por 0 (caso algum roubo seja zero)
-taxa_recuperacao_diaria = taxa_recuperacao_diaria.fillna(0)
-
-# Exibindo os resultados
-print("Quantidade diária de roubos + furtos de automóveis:")
-for i, quantidade in enumerate(quantidade_diaria_roubos_furtos, start=1):
-    print(f"Dia {i}: {quantidade}")
-
-print("\nTaxa de recuperação de automóveis diária:")
-for i, taxa in enumerate(taxa_recuperacao_diaria, start=1):
-    print(f"Dia {i}: {taxa:.2f}%")
+# Criando o Código
+roubo = pd.Series([100,90,80,120,110,90,70])
+furto = pd.Series([80,60,70,60,100,50,30])
+recuperacao = pd.Series([70,50,90,80,100,70,50])
+roubo_furto = roubo + furto
+tx_recuperacao = ((recuperacao / roubo_furto) * 100).apply(formatar)
+print("\n- Total Geral de Roubos -")
+print(f"{roubo_furto.sum()}")
+print("\n- Total de Roubos Diários -")
+print(f"{roubo_furto}")
+print("\n- Taxa de Recuperação Diária -")
+print(f"{tx_recuperacao}")

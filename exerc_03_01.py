@@ -12,7 +12,6 @@
 ###
 import pandas as pd
 
-
 def formatar(valor):
     return "{:.2f}%".format(valor)
 vacinas = pd.Series([30000000, 25000000, 10000000, 5000000])
