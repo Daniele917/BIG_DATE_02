@@ -49,7 +49,8 @@ maior_municipio_roubos = df_ocorrencias[df_ocorrencias['Roubos'] == maior_roubos
 menor_municipio_roubos = df_ocorrencias[df_ocorrencias['Roubos'] == menor_roubos]['Município']
 maior_municipio_populacao = df_ocorrencias[df_ocorrencias['Habitantes'] == maior_populacao]['Município']
 menor_municipio_populacao = df_ocorrencias[df_ocorrencias['Habitantes'] == menor_populacao]['Município']
-tx_roubo = ((df_ocorrencias['Roubos'] / df_ocorrencias['Habitantes']) * 100).apply(formatar)
+# tx_roubo = ((df_ocorrencias['Roubos'] / df_ocorrencias['Habitantes']) * 100).apply(formatar)
+df_ocorrencias['taxa'] = ((df_ocorrencias['Roubos'] / df_ocorrencias['Habitantes']) * 100).apply(formatar)
 # Exibindo os Dados
 print("\n---- Informações Solicitadas ----")
 print(f"A quantidade total de roubos no período foi {soma_roubos}")
@@ -64,5 +65,5 @@ print(f"O município com maior quantidade de roubos é {maior_municipio_roubos}"
 print(f"O município com menor quantidade de roubos é {menor_municipio_roubos}")
 print(f"O município com maior valor populacional é {maior_municipio_populacao}")
 print(f"O município com menor valor populacional é {menor_municipio_populacao}")
-print("\n---- Taxa de Roubos ----")
-print(tx_roubo)
+print("\n---- Taxa de Roubos a Pedestres ----")
+print(df_ocorrencias[['Município','taxa']])
