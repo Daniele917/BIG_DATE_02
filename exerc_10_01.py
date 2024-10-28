@@ -66,6 +66,17 @@ df_financeira_renda_outliers_inferiores = df_financeira[df_financeira['Renda'] <
 df_financeira_Vlr_emprestado_outliers_superiores = df_financeira[df_financeira['Vlr_emprestado'] > limite_superior_Vlr_emprestado]
 df_financeira_Vlr_emprestado_outliers_inferiores = df_financeira[df_financeira['Vlr_emprestado'] < limite_inferior_Vlr_emprestado]
 
+# Obtendo as medidas de dispersão da renda e do valor emprestado
+variancia_renda = np.var(array_financeira_renda)
+distancia_var_renda = variancia_renda / (media_renda**2)
+desvio_padrao_renda = np.std(array_financeira_renda)
+coeficiente_var_renda = desvio_padrao_renda / media_renda
+
+# Obtendo as medidas de dispersão do valor emprestado
+variancia_Vlr_emprestado = np.var(array_financeira_Vlr_emprestado)
+distancia_var_Vlr_emprestado = variancia_Vlr_emprestado / (media_Vlr_emprestado**2)
+desvio_padrao_Vlr_emprestado = np.std(array_financeira_Vlr_emprestado)
+coeficiente_var_Vlr_emprestado = desvio_padrao_Vlr_emprestado / media_Vlr_emprestado
 
 # Exibindo os dados sobre a renda
 print('\nOBTENDO INFORMAÇÕES SOBRE RENDA')
@@ -82,6 +93,18 @@ print(f"O valor do q3 - 75% da renda é R$ {q3_renda:.2f}")
 print(f"O valor do iqr = q3 - q1 da renda é R$ {iqr_renda:.2f}")
 print(f"O limite inferior da renda é R$ {limite_inferior_renda:.2f}")
 print(f"O limite superior da renda é R$ {limite_superior_renda:.2f}")
+
+print(f"A variância das rendas dos clientes é R$ {variancia_renda:.2f}")
+print(f"A distância da variância x rendas dos clientes é R$ {distancia_var_renda:.2f}")
+print(f"O desvio padrão das rendas dos clientes é R$ {desvio_padrao_renda:.2f}")
+print(f"O coeficiente de variação das rendas dos clientes é R$ {coeficiente_var_renda:.2f}")
+
+print(f"O limite superior do valor emprestado é R$ {limite_superior_Vlr_emprestado:.2f}")
+print(f"A variância dos valores emprestados é R$ {variancia_Vlr_emprestado:.2f}")
+print(f"A distância da variância x valor emprestado é R$ {distancia_Vlr_emprestado:.2f}")
+print(f"O desvio padrão dos valores emprestados é R$ {desvio_padrao_Vlr_emprestado:.2f}")
+print(f"O coeficiente de variação dos valores emprestados é R$ {coeficiente_var_Vlr_emprestado:.2f}")
+
 print('\n- Verificando a existência de outliers inferiores -')
 if len(df_financeira_renda_outliers_inferiores) == 0:
     print("Não existem outliers inferiores")
