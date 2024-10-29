@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 print('---- OBTENDO DADOS ----')
 
@@ -142,5 +143,52 @@ if len(df_financeira_Vlr_emprestado_outliers_superiores) == 0:
 else:
     print(df_financeira_Vlr_emprestado_outliers_superiores)
 
+# Visualizando os dados sobre a renda e os valores de empréstimos
+    print('\nVisualizando os Dados...') 
+    plt.subplots(2,2,figsize=(16,7))
+    plt.suptitle('Análise dos Dados sobre Renda x Empréstimo')
+    
+# Histograma para Renda
 
 
+
+#  Lista das Rendas por Cliente
+plt.subplot(2, 2, 1)
+plt.title('Lista das Rendas por Cliente')
+plt.bar(df_financeira['Id_cliente'], df_financeira['Vlr_emprestado'], color='skyblue')
+plt.xlabel('ID do Cliente')
+plt.ylabel('Renda')
+plt.xticks(rotation=90)  # Rotaciona os rótulos do eixo X para melhor visualização
+
+#  Exibir estatísticas da Renda
+plt.subplot(2, 2, 2)
+plt.axis('off')  # Remove os eixos
+plt.text(0.1, 0.9, f'Média das Rendas: {media_renda}', fontsize=12)
+plt.text(0.1, 0.8, f'Mediana das Rendas: {mediana_renda}', fontsize=12)
+plt.text(0.1, 0.7, f'Maior das Rendas: {maior_renda}', fontsize=12)
+plt.text(0.1, 0.6, f'Menor das Rendas: {menor_renda}', fontsize=12)
+plt.text(0.1, 0.5, f'Distância entre Variações das Rendas: {distancia_var_renda}', fontsize=12)
+plt.text(0.1, 0.4, f'Coeficiente de Variação das Rendas: {coeficiente_var_renda}', fontsize=12)
+
+#  Histograma do Valor Emprestado
+plt.subplot(2, 2, 3)
+plt.hist(array_financeira_Vlr_emprestado, bins=30, color='salmon', edgecolor='black')
+plt.title('Histograma do Valor Emprestado')
+plt.xlabel('Valor Emprestado')
+plt.ylabel('Frequência')
+
+# Boxplot para Renda
+plt.subplot(2, 2, 4)
+plt.boxplot(array_financeira_renda, vert=False)
+plt.title('Boxplot da Renda')
+plt.xlabel('Renda')
+
+#  Boxplot para Valor Emprestado
+plt.subplot(2, 2, 4)
+plt.boxplot(array_financeira_Vlr_emprestado, vert=False)
+plt.title('Boxplot do Valor Emprestado')
+plt.xlabel('Valor Emprestado')
+
+# Ajusta o layout para não sobrepor
+plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.show()
