@@ -11,6 +11,8 @@ df_ocorrencias = pd.read_csv(endereco_dados,sep=';',encoding='iso-8859-1')
 df_rec_veiculo = df_ocorrencias[['aisp','ano','recuperacao_veiculos']]
 df_rec_veiculo = df_rec_veiculo[df_rec_veiculo['ano'].isin([2022,2023])]
 df_rec_veiculo = df_rec_veiculo.groupby(['aisp']).sum(['recuperacao_veiculos']).reset_index()
+#df_rec_veiculo_ano = df_ocorrencias[['aisp','ano','recuperacao_veiculos']]
+#df_rec_veiculo_ano = df_rec_veiculo_ano.groupby(['ano']).sum(['recuperacao_veiculos']).reset_index()
 
 # Exibindo a base de dados ocorrencia
 print('\n---- EXIBINDO A BASE DE DADOS -----')
@@ -91,7 +93,7 @@ else:
 # Visualizando os dados sobre os roubos de veículos
 print('\nVISUALIZANDO OS DADOS...')
 plt.subplots(2,2,figsize=(16,7))
-plt.suptitle('Análise dos Dados sobre Recuperação de Veículos')
+plt.suptitle('Análise dos Dados sobre Recuperação de Veículos nos Anos de 2022 e 2023')
 
 # posição 01: Gráfico dos Roubos de Veículos
 plt.subplot(2,2,1)
@@ -108,6 +110,7 @@ plt.subplot(2,2,3)
 df_rec_veiculo_outliers_superiores_order = df_rec_veiculo_outliers_superiores.sort_values(by='recuperacao_veiculos',ascending=True)
 plt.title('Ranking dos Batalhoes de PM com Outliers Superiores')
 plt.barh(df_rec_veiculo_outliers_superiores_order['aisp'].astype(str),df_rec_veiculo_outliers_superiores_order['recuperacao_veiculos'])
+#plt.plot(df_rec_veiculo_ano['ano'].astype(str),df_rec_veiculo_ano['recuperacao_veiculos'])
 
 # posição 04: Medidas descritivas dos Roubos de Veículos
 plt.subplot(2,2,4)
